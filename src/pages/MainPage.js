@@ -7,11 +7,11 @@ import ProductSection from "../components/main/ProductSection"
 const MainPage = () => {
   return (
     <div className="main-page">
+      <Header />
       <BannerSection />
       <CategorySection />
-      <Footer />
-      <Header />
       <ProductSection />
+      <Footer />
       </div>
   )
 }

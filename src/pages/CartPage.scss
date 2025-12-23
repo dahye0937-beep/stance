@@ -5,8 +5,8 @@
 .cart-page {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px 16px 60px;
-  background: #fff;
+  padding: 2rem;
+  background: var(Surface-100);
 }
 
 .cart-title {
@@ -49,6 +49,7 @@
   align-items: center;
   gap: 8px;
   @include body-M();
+  color: var(Text-300);
 
   input {
     width: 16px;
@@ -61,6 +62,11 @@
   padding: 6px 0;
 }
 
+.brand {
+  @include subtitle-L();
+  color: var(static-black);
+  margin-bottom: 6px;
+}
 
 .cart-item {
   display: grid;
@@ -96,18 +102,19 @@
 
 .item-info {
   min-width: 0;
+
+  .item-title {
+    @include body-M();
+  }
+
+  .sub-title {
+    @include body-S();
+    color: var(--Text-300);
+    margin-bottom: 12px;
+  }
 }
 
-.brand{
-  @include subtitle-L();
-  color: var(static-black);
-  margin-bottom: 6px;
-}
 
-.name {
-  @include body-M();
-  margin-bottom: 12px;
-}
 
 /* 수량 + 가격 영역 */
 .item-row {
@@ -147,8 +154,7 @@
 .count-num {
   width: 28px;
   text-align: center;
-  font-weight: 900;
-  color: #111;
+  @include subtitle-M();
 }
 
 
@@ -201,12 +207,21 @@
     font-weight: 700;
     color: #333;
 
+
+
     &.total {
       font-weight: 900;
       color: #111;
       padding-top: 12px;
     }
   }
+}
+
+.gray-txt {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #b0b0b0;
 }
 
 
@@ -281,6 +296,7 @@
   color: #fff;
   border: 1px solid #e4e7ec;
 }
-.delete-btn{
-    @include subtitle-M();
+
+.delete-btn {
+  @include subtitle-M();
 }

@@ -7,9 +7,12 @@ import "./assets/scss/global.scss";
 
 import { useState } from "react";
 const App = () => {
+
+
+  //장바구니 아이템 임시입니다
   const [cartItems, setCartItems] = useState([
-    { id: 1, title: "테스트 상품", price: 80000, quantity: 1 },
-    { id: 2, title: "테스트 상품2", price: 129000, quantity: 2 },
+    { id: 1, title: "테스트 상품", price: 80000, quantity: 1 ,image:"shoes01-1.jpg" },
+    { id: 2, title: "테스트 상품2", price: 129000, quantity: 2,image:"shoes01-1.jpg"},
   ]);
   const onUpdateQty = (id, delta) => {
     setCartItems((prev) =>

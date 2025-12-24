@@ -102,7 +102,10 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
                   </div>
 
                   <div className="item-info">
-                    <p className="item-title">PACEFY {item.title}</p>
+                    <div className="sameline">
+                    <p className="item-title">PACEFY {item.title}</p>  
+                    <button className="remove" onClick={() => onDelete(item.id)}><i className="fa-solid fa-x"></i></button>
+                    </div>
                     <p className="sub-title">subname 들어갈 곳</p>
 
                     <div className="item-row">
@@ -113,15 +116,10 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
                       </div>
 
                       <div className="prices">
-                        {/* 개당 가격 */}
-                        {/* <p className="unit">₩ {Number(item.price).toLocaleString()}</p> */}
-                        {/* 전체 가격입니다 */}
                         <p className="sum">₩ {(item.price * item.quantity).toLocaleString()}</p>
                       </div>
                     </div>
                   </div>
-
-                  <button className="remove" onClick={() => onDelete(item.id)}>×</button>
                 </li>
               ))}
             </ul>
@@ -166,7 +164,7 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
               <span>상품할인</span>
               <span className="red-txt">-₩ {discount.toLocaleString()}</span>
             </div>
-            <div className="summary-row">
+            <div className="summary-row dashed">
               <span>
                 배송비 <span className="gray-txt">(제주/도서 산간 배송비 포함)</span>
               </span>
@@ -179,10 +177,11 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
               <span>총 결제금액</span>
               <span>₩ {finalTotal.toLocaleString()}</span>
             </div>
-
-            <button className="summary-order-btn">
+          <div className="order-btn-wrap">
+            <button className="order-btn">
               총 {totalQty}개 | {finalTotal.toLocaleString()}원 주문하기
             </button>
+            </div>
           </div>
         </aside>
       </div>

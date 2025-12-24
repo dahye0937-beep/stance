@@ -313,9 +313,21 @@
 .cart-page {
   margin: 0 auto;
   max-width: 1024px;
+  margin: 0 auto;
+  max-width: 1024px;
   padding: 2rem;
   background: var(--Surface-100);
+  background: var(--Surface-100);
 
+  .cart-title {
+    @include title-h1();
+    text-align: left;
+
+    @media (max-width:768px) {
+      text-align: center;
+      @include subtitle-L();
+    }
+  }
   .cart-title {
     @include title-h1();
     text-align: left;
@@ -330,7 +342,16 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
+  .cart-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
 
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 380px;
+      align-items: start;
+    }
+  }
     @media (min-width: 1024px) {
       grid-template-columns: 1fr 380px;
       align-items: start;
@@ -341,12 +362,26 @@
     border: 1px solid #e4e7ec;
     background: #fff;
     overflow: hidden;
+  .cart-card {
+    border: 1px solid #e4e7ec;
+    background: #fff;
+    overflow: hidden;
 
     .cart-toolbar {
       @include flex-layout(row, space-between, center, 1rem);
       padding: 0.5rem 1rem;
       background: var(--Surface-200);
+    .cart-toolbar {
+      @include flex-layout(row, space-between, center, 1rem);
+      padding: 0.5rem 1rem;
+      background: var(--Surface-200);
 
+      .check {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        @include body-M();
+        color: var(--Text-400);
       .check {
         display: inline-flex;
         align-items: center;
@@ -378,7 +413,14 @@
 
 .cart-list {
   padding: 0.5rem 0;
+  padding: 0.5rem 0;
 
+  .brand {
+    @include subtitle-L();
+    color: var(--Text-400);
+    margin: 0 0 0.5rem 1rem;
+    padding: 0.5rem;
+  }
   .brand {
     @include subtitle-L();
     color: var(--Text-400);
@@ -397,7 +439,22 @@
       height: 24px;
     }
 
+  .cart-item {
+    @include flex-layout(row, flex-start, center, 1rem);
+    padding: 1rem;
+    border-bottom: 1px solid var(--Border-100);
+    border-top: 1px solid var(--Border-100);
 
+    input {
+      width: 24px;
+      height: 24px;
+    }
+
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
     &:last-child {
       border-bottom: none;
     }
@@ -409,7 +466,20 @@
     height: 86px;
     background: var(--Surface-200);
     overflow: hidden;
+  /* 이미지(일단 빈 박스) */
+  .list-img {
+    width: 86px;
+    height: 86px;
+    background: var(--Surface-200);
+    overflow: hidden;
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
     img {
       width: 100%;
       height: 100%;
@@ -426,7 +496,19 @@
       @include flex-layout(row, space-between, "", 2rem);
       padding: 0.5rem;
     }
+  .item-info {
+    width: 100%;
+    min-width: 0;
 
+    .sameline {
+      @include flex-layout(row, space-between, "", 2rem);
+      padding: 0.5rem;
+    }
+
+    .item-title {
+      @include body-M();
+
+    }
     .item-title {
       @include body-M();
 
@@ -438,8 +520,17 @@
       margin: 0 0.5rem 12px;
     }
   }
+    .sub-title {
+      @include body-S();
+      color: var(--Text-300);
+      margin: 0 0.5rem 12px;
+    }
+  }
 
 
+  /* 수량 + 가격 영역 */
+  .item-row {
+    @include flex-layout(row, space-between, center, 0.8rem);
   /* 수량 + 가격 영역 */
   .item-row {
     @include flex-layout(row, space-between, center, 0.8rem);

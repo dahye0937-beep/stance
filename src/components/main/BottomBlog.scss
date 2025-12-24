@@ -1,5 +1,7 @@
 @use "../../assets/scss/mixins" as *;
 
+//pc버전
+
 #keyword {
   width: 100%;
   padding-bottom: 5rem;
@@ -53,6 +55,51 @@
         &:hover {
           background: rgba(0, 0, 0, 0.4);
         }
+      }
+    }
+  }
+}
+
+// 모바일 버전
+@include mobile {
+  #keyword {
+    h2 {
+      font-size: 1.25rem;
+      text-align: center;
+      white-space: nowrap;
+      margin-bottom: 1rem;
+    }
+    ul {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 12px;
+      padding-left: 10vw;
+      // overflow: hidden;
+      position: relative;
+      li {
+        flex: 0 0 80vw;
+        height: 60vh;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        > h2 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .btn {
+        display: none;
       }
     }
   }

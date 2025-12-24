@@ -7,7 +7,8 @@ const BottomBlog = () => {
   return (
     <section id="keyword">
       <h2>#HOT PEACY KEYWORD</h2>
-      <ul>
+      <ul
+      >
         {listDate.map((item, idx) => (
           <li key={idx}>
             <img

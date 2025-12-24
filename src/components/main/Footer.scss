@@ -1,5 +1,8 @@
-
+@use '../../assets/scss/mixins' as *;
+@use '../../assets/scss/variables' as *;
+@use '../../assets/scss/fonts' as *;
 .footer-container {
+    color: var(--Primary-300);
   width: 100%;
   border-top: 1.5px solid var(--Primary-300);
   padding: 80px 0;
@@ -10,24 +13,26 @@
     padding: 0 60px;
     display: flex;
     justify-content: space-between;
-  }
+    
+  .section-info{
+     .brand {
+    @include title-h1();
+    color: var(--Primary-300);
+    
+  .desc-txt {
+    @include body-S();
 
-  .section-info,
-  .section-contact,
+  }
+  }
+ 
+  }
+   .section-contact,
   .section-social {
     flex: 1;
     padding: 0 60px;
-  }
-
-  .section-contact,
-  .section-social {
     border-left: 1px solid var(--Primary-300);
   }
-  .brand {
-    font-size: 32px;
-    font-weight: 900;
-    margin-bottom: 30px;
-  }
+
 
   .title {
     font-size: 16px;
@@ -36,15 +41,7 @@
     line-height: 1.1;
   }
 
-  .desc-txt {
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.7;
-    // color: rgba($blue, 0.85);
-    margin: 18px 0 0;
-  }
 
-  /* 회사 선택(드롭다운처럼 보이게) */
   .company-select {
     display: inline-flex;
     align-items: center;
@@ -70,19 +67,14 @@
     a {
       font-size: 13px;
       font-weight: 700;
-    //   color: $blue;
       text-decoration: none;
-    //   border-bottom: 1px solid $blue;
       padding-bottom: 2px;
     }
   }
-
-  /* 정책 링크는 아래쪽에 조금 더 떨어지게 */
   .policy-links {
     margin-top: 22px;
   }
 
-  /* ---------- 고객센터 ---------- */
   .section-contact {
     .section-header {
       display: flex;
@@ -106,8 +98,6 @@
       display: none;
     }
   }
-
-  /* ---------- 스토리/SNS ---------- */
   .section-social {
     display: flex;
     flex-direction: column;
@@ -127,7 +117,6 @@
         font-weight: 700;
         text-decoration: underline;
         text-underline-offset: 4px;
-        // color: $blue;
         white-space: nowrap;
       }
     }
@@ -146,7 +135,6 @@
           width: 32px;
           height: 32px;
           border-radius: 8px;
-        //   background: $blue;
           color: #fff;
           display: inline-flex;
           align-items: center;
@@ -177,14 +165,12 @@
       width: 100%;
       padding: 40px 24px;
       border-left: none !important;
-    //   border-bottom: 1px solid rgba($blue, 0.2);
     }
 
     .pc-only {
       display: none;
     }
 
-    /* 고객센터: 모바일에서는 우측에 QNA 링크 노출 */
     .section-contact {
       .mobile-only-links {
         display: flex;
@@ -201,8 +187,6 @@
         font-size: 34px;
       }
     }
-
-    /* 스토리/SNS: 모바일에서 SNS만 아래 영역으로 분리 + 상단 굵은 선 */
     .section-social {
       padding: 0 !important;
       border-bottom: none !important;
@@ -219,7 +203,6 @@
       }
 
       .sns-area {
-        // border-top: 1.5px solid $blue;
         padding: 30px 24px 50px;
         margin-top: 0;
 
@@ -236,3 +219,4 @@
 }
 
 
+}

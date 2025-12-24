@@ -8,6 +8,7 @@
     width: 100%;
     position: relative;
     img {
+      cursor: pointer;
       width: 100%;
       height: 60rem;
       aspect-ratio: 1/1;
@@ -40,21 +41,20 @@
     top: 50%;
     left: 0;
     @include flex-layout(row, space-between);
-    .prev {
-      font-size: 24px;
-      color: var(--Static-white);
-      @include flex-layout;
-      width: 48px;
-      height: 48px;
-      background: rgba(0, 0, 0, 0.2);
-    }
+    .prev,
     .next {
-      font-size: 24px;
-      color: var(--Static-white);
-      @include flex-layout;
       width: 48px;
       height: 48px;
+      font-size: 24px;
       background: rgba(0, 0, 0, 0.2);
+      color: var(--Static-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        background: rgba(0, 0, 0, 0.4);
+      }
     }
   }
   .indi-bottom {
@@ -72,9 +72,14 @@
         background-color: #e1e1e1;
         border-radius: 2px;
         transition: 0.3s;
+        cursor: pointer;
+        transition: background-color 0.3s;
         &.active {
           background-color: var(--Primary-300);
           height: 4px;
+        }
+        &:hover {
+          background-color: #0073e5;
         }
       }
       .indi-txt {

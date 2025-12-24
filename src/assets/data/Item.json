@@ -115,5 +115,50 @@
     "price1": "170000",
     "price2": "145000",
     "category": "pick"
+  },
+  {
+    "id": "14",
+    "image": "shoes14-1.jpg",
+    "title": "PACEY",
+    "sub1": "이지 런",
+    "price1": "110000",
+    "price2": "89000",
+    "category": "pick"
+  },
+  {
+    "id": "15",
+    "image": "shoes15-1.jpg",
+    "title": "PACEY",
+    "sub1": "볼트 스텝",
+    "price1": "148000",
+    "price2": "125000",
+    "category": "pick"
+  },
+  {
+    "id": "16",
+    "image": "shoes16-1.jpg",
+    "title": "PACEY",
+    "sub1": "데일리 핏 러너",
+    "price1": "118000",
+    "price2": "98000",
+    "category": "pick"
+  },
+  {
+    "id": "17",
+    "image": "shoes17-1.jpg",
+    "title": "PACEY",
+    "sub1": "하이퍼 런",
+    "price1": "160000",
+    "price2": "138000",
+    "category": "pick"
+  },
+  {
+    "id": "18",
+    "image": "shoes18-1.jpg",
+    "title": "PACEY",
+    "sub1": "소프트 스텝",
+    "price1": "122000",
+    "price2": "102000",
+    "category": "pick"
   }
 ]

@@ -9,37 +9,74 @@ import "./assets/scss/global.scss";
 import { useState } from "react";
 const App = () => {
 
+  const [cartItems, setCartItems] = useState([]);
 
-  //장바구니 아이템 임시입니다
-  const [cartItems, setCartItems] = useState([
-    { id: 1, title: "테스트 상품", price: 80000, quantity: 1, image: "shoes01-1.jpg" },
-    { id: 2, title: "테스트 상품2", price: 129000, quantity: 2, image: "shoes01-1.jpg" },
-  ]);
-  const onUpdateQty = (id, delta) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-          : item
-      )
+  const handleAddToCart = (product) => {
+    const existItem = cartItems.find((item) => item.id === product.id);
+
+    if (existItem){
+      const items = cartItems.map((cart)=>
+        cart.id === [product].id ? { ...cart,quantity: cart.quantity +1}
+      : cart
     );
+    setCartItems(items);
+    } else{
+      const items = [...cartItems, {...product, quantity:1}];
+      setCartItems(items);
+    }
   };
+  //  const handleCartDelete = (id) => {
+  //   const items = cartItems.filter((item) => item.id !== id);
+  //   setCartItems(items);
+  // };
 
-  // ✅ 삭제
-  const onDelete = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const handleUpdateQuantity = (id, type) => {
+    const update = cartItems.map((item)=> {
+      if(item.id === id) {
+        if(type === "plus"){
+          return {...item, quantity: item.quantity +1};
+        } else if ( type === "minus" && item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1};
+        }
+      }
+      return item;
+    });
+    setCartItems(update);
   };
+  const handleCartDelete = (id)=>{
+  const items = cartItems.filter((item)=>{
+    return item.id !== id;
+  });
+  setCartItems(items);
+}
+
+
+
+  // const onUpdateQty = (id, delta) => {
+  //   setCartItems((prev) =>
+  //     prev.map((item) =>
+  //       item.id === id
+  //         ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+  //         : item
+  //     )
+  //   );
+  // };
+
+  // // ✅ 삭제
+  // const onDelete = (id) => {
+  //   setCartItems((prev) => prev.filter((item) => item.id !== id));
+  // };
 
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />} />
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage onAdd={handleAddToCart}/>} />
         <Route path="/cart" element={<CartPage
           cartItems={cartItems}
-          onUpdateQty={onUpdateQty}
-          onDelete={onDelete} />} />
-        <Route path="/category" element={<CategoryPage />} />
+          onUpdate={handleUpdateQuantity}
+          onDelete={handleCartDelete} />} />
+        <Route path="/category" element={<CategoryPage  onAdd={handleAddToCart}/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 
 import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
@@ -19,11 +19,6 @@ const App = () => {
         cart.id === [product].id ? { ...cart,quantity: cart.quantity +1}
       : cart
     );
-    setCartItems(items);
-    } else{
-      const items = [...cartItems, {...product, quantity:1}];
-      setCartItems(items);
-    }
   };
 
 
@@ -60,7 +55,8 @@ const App = () => {
           onDelete={handleCartDelete} />} />
         <Route path="/category" element={<CategoryPage  onAdd={handleAddToCart}/>} />        
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
+    // </BrowserRouter>
   );
 };
 

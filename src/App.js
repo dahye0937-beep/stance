@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import {  HashRouter, Route, Routes } from "react-router-dom";
 
 import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
@@ -7,7 +7,7 @@ import CategoryPage from "./pages/CategoryPage";
 import "./assets/scss/global.scss";
 
 import { useState } from "react";
-import DetailPage from "./pages/DetailPage";
+// import DetailPage from "./pages/DetailPage";
 const App = () => {
 
   const [cartItems, setCartItems] = useState([]);

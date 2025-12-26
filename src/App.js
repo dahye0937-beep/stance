@@ -4,6 +4,7 @@ import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
 import CartPage from "./pages/CartPage";
 import CategoryPage from "./pages/CategoryPage";
+import DetailPage from "./pages/DetailPage";
 import "./assets/scss/global.scss";
 
 import { useState } from "react";
@@ -45,19 +46,21 @@ const App = () => {
 
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
-        <Route element={<Layout />} />
+        <Route element={<Layout />} >
         <Route path="/" element={<MainPage onAdd={handleAddToCart}/>} />
         <Route path="/cart" element={<CartPage
           cartItems={cartItems}
           onUpdate={handleUpdateQuantity}
           onDelete={handleCartDelete} />} />
-        <Route path="/category" element={<CategoryPage  onAdd={handleAddToCart}/>} />        
+        <Route path="/category" element={<CategoryPage  onAdd={handleAddToCart}/>} />
+        <Route path="/detail/:id" element={<DetailPage />} />
+        </Route>        
       </Routes>
     </HashRouter>
-    // </BrowserRouter>
   );
 };
+}
 
-export default App;
+export default App

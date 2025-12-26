@@ -1,22 +1,25 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "./CartPage.scss";
 
 const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
-  // 선택된 상품들
+  const navigate = useNavigate(); 
+   const handleBack = () => {
+    navigate(-1); 
+  };
+
   const [checkedIds, setCheckedIds] = useState(() => new Set());
 
-  // cartItems 바뀌면 기본값 = 전체 선택
   useEffect(() => {
     setCheckedIds(new Set(cartItems.map((i) => i.id)));
   }, [cartItems]);
 
-  // 전체선택 여부
+
   const allChecked = useMemo(() => {
     if (cartItems.length === 0) return false;
     return cartItems.every((i) => checkedIds.has(i.id));
   }, [cartItems, checkedIds]);
 
-  // 선택된 아이템 목록
   const selectedItems = useMemo(() => {
     return cartItems.filter((i) => checkedIds.has(i.id));
   }, [cartItems, checkedIds]);
@@ -36,7 +39,7 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
     return 3000;
   }, [itemsTotal]);
 
-  // 할인 
+  // 할인 //30만원- 3만원 할인
   const discount = useMemo(() => {
     // 설정 필요 
     if (itemsTotal >= 300000) return 30000;
@@ -45,7 +48,6 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
 
   const finalTotal = itemsTotal - discount + shippingFee;
 
-  // 이벤트
   const toggleAll = () => {
     if (allChecked) setCheckedIds(new Set());
     else setCheckedIds(new Set(cartItems.map((i) => i.id)));
@@ -66,7 +68,7 @@ const CartPage = ({ cartItems, onUpdateQty, onDelete }) => {
   return (
     <div className="cart-page">
       <div className="back" >
-        <p className="back-icon"> ← </p>
+        <p className="back-icon" onClick={handleBack}> ← </p>
         <p className="cart-title">장바구니</p>
       </div>
 

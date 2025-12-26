@@ -10,20 +10,24 @@
 }
 
 .back {
-  @include flex-layout(row, flex-start, flex-start, 1rem);
-  margin-bottom: 1rem;
+  padding: 1rem;
+  @include flex-layout(row, center, center, 1rem);
 
   p {
     @include title-h1();
 
     @include mobile {
       @include subtitle-L();
+      
+      
     }
   }
 }
 
 .back-icon {
   display: none;
+  cursor: pointer;
+  @include subtitle-L();
 
   @include mobile {
     display: inline-block;
@@ -388,6 +392,10 @@
         background: var(--Primary-300);
         color: var(--Static-white);
         @include subtitle-L();
+
+        &:hover{
+          background-color:var(--Primary-400) ;
+        }
       }
     }
 
